@@ -17,12 +17,19 @@ public class Main {
         // Load data file into an ArrayList<Person> of Person objects.
         Main programObject = new Main();
 
-        List listOfStudents = programObject.loadCSVFile(student_source);
+        List listOfStudents = programObject.handWrittenLoadOfData();
 
         int numberOfPersons = listOfStudents.size();
         for (int i = 0; i< numberOfPersons; i++){
             System.out.println(listOfStudents.get(i).toString());
         }
+
+//        int numberOfStudents = students.size();
+//        for (int i = 0; i< numberOfPersons; i++){
+//            System.out.println(listOfStudents.get(i).toString());
+//        }
+
+
     }
 
     private List loadCSVFile(String student_source) {
@@ -46,6 +53,30 @@ public class Main {
         String[] values = line.split(COMMA_DELIMITER);
         Person newPerson = new Person(values[0], values[1]);
         return newPerson;
+    }
+
+    public List handWrittenLoadOfData(){
+        ArrayList<Person> students = new ArrayList<>();
+
+        Person teddy = new Person("Teddy");
+        teddy.setFavBev("half&half");
+        teddy.getFavColor("red");
+        teddy.isHasPets(false);
+        students.add(teddy);
+
+        Person peter = new Person("teddy", "latte", "purple", true);
+        students.add(peter);
+
+        Person timl = new Person("tim", "water", "green", false);
+        students.add(timl);
+
+        Person qian = new Person("qian", "water", "blue", false);
+        students.add(qian);
+
+        Person ian = new Person("ian", "water", "green", true);
+        students.add(ian);
+
+    return students;
     }
 
 }
